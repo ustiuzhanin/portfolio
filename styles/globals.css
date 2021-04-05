@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-color: #000;
+  font-family: sans-serif;
+}
+
+.location--wrapper {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
