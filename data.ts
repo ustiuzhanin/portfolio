@@ -11,7 +11,7 @@ export const services:Service[] = [
     titlee: 'Freveloper',
     desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat repudiandae sint consectetur ipsum quos architecto ab hic optio, eaque officiis dolor, ad expedita?',
     Icon: RiComputerLine
-  }
+  },
   {
     titlee: 'Whatever',
     desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat repudiandae sint consectetur ipsum quos architecto ab hic optio, eaque officiis dolor, ad expedita? Accusamus molestiae pariatur nam in reiciendis tempora!',
