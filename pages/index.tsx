@@ -13,11 +13,11 @@ const index = () => {
         autem illum esse praesentium quis, accusamus rem impedit distinctio eum
         aperiam laudantium?
       </h5>
-      <div className='flex-grow p-4 mt-5 bg-gray-400 skills-wrapper'>
+      <div className='flex-grow p-4 mt-5 bg-gray-400 dark:bg-dark-100 skills-wrapper'>
         <h5 className='my-3 text-xl font-bold tracking-wide'>Skills</h5>
         <div className='grid gap-6 lg:grid-cols-2'>
           {services.map((service) => (
-            <div className='bg-gray-200 rounded-lg lg:col-span-1'>
+            <div className='bg-gray-200 rounded-lg dark:bg-dark-200 lg:col-span-1'>
               <ServiceCard service={service} />
             </div>
           ))}
@@ -28,14 +28,3 @@ const index = () => {
 };
 
 export default index;
-
-// export default getStaticProps = async (context: GetStaticProps) => {
-//   const res = await fetch("http://localhost:3000");
-//   const data = await res.json();
-
-//   return {
-//     props: {
-//       services: data.services,
-//     },
-//   };
-// };

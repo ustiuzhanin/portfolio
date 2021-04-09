@@ -1,8 +1,14 @@
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { GoLocation } from "react-icons/go";
 import { GiTie } from "react-icons/gi";
+import { useTheme } from "next-themes";
 
 const Sidebar = () => {
+  const { theme, setTheme } = useTheme();
+
+  const handleBtnClick = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
   return (
     <div>
       <img
@@ -13,13 +19,13 @@ const Sidebar = () => {
       <h2 className='my-4 text-3xl font-medium tracking-wider'>
         <span className='text-green'>Slava</span> U.
       </h2>
-      <p className='px-2 py-1 my-3 bg-gray-200 rounded-full'>
+      <p className='px-2 py-1 my-3 bg-gray-200 rounded-full dark:bg-dark-200'>
         Front-End Web Developer
       </p>
       <a
         href='#'
         download='name'
-        className='flex items-center justify-center px-2 py-1 my-3 bg-gray-200 rounded-full'
+        className='flex items-center justify-center px-2 py-1 my-3 bg-gray-200 rounded-full dark:bg-dark-200'
       >
         <GiTie className='w-6 h-6' /> Download Resume
       </a>
@@ -33,7 +39,7 @@ const Sidebar = () => {
         </a>
       </div>
       {/* address */}
-      <div className='py-5 my-5 bg-gray-200 mx--1 location--wrapper'>
+      <div className='py-5 my-5 bg-gray-200 dark:bg-dark-200 mx--1 location--wrapper'>
         <div className='flex items-center justify-center space-x-2'>
           <GoLocation className='w-6 h-6' />
           <span>Chicago, IL</span>
@@ -42,11 +48,14 @@ const Sidebar = () => {
           Send Email
         </a>
       </div>
-      <button className='w-8/12 px-5 py-5 my-2 text-white rounded-full bg-gradient-to-r from-green to-blue-400'>
+      <button className='w-8/12 px-5 py-5 my-2 text-white rounded-full focus:outline-none bg-gradient-to-r from-green to-blue-400'>
         Email Me!
       </button>
-      <button className='w-8/12 px-5 py-5 my-2 text-white rounded-full bg-gradient-to-r from-green to-blue-400'>
-        Toggle Theme
+      <button
+        onClick={handleBtnClick}
+        className='w-8/12 px-5 py-5 my-2 text-white rounded-full focus:outline-none bg-gradient-to-r from-green to-blue-400'
+      >
+        {theme === "light" ? "Dark Mode" : "Light Mode"}
       </button>
     </div>
   );
