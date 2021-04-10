@@ -23,8 +23,8 @@ const Sidebar = () => {
         Front-End Web Developer
       </p>
       <a
-        href='#'
-        download='name'
+        href='/assets/resume.pdf'
+        download='resume.pdf'
         className='flex items-center justify-center px-2 py-1 my-3 bg-gray-200 rounded-full dark:bg-dark-200'
       >
         <GiTie className='w-6 h-6' /> Download Resume

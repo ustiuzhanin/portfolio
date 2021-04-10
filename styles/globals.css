@@ -17,3 +17,12 @@ body {
   margin-left: -1.5rem;
   margin-right: -1.5rem;
 }
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to right buttom, #00f260, #0575e6);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 0;
+}

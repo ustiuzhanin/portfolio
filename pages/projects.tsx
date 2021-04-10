@@ -11,6 +11,7 @@ const projects = () => {
       animate='animate'
       exit='exit'
       className='px-5 py-2 overflow-x-scroll'
+      style={{ height: "65vh" }}
     >
       <motion.div
         variants={stagger}
@@ -20,7 +21,67 @@ const projects = () => {
       >
         <motion.div
           variants={fadeInUp}
-          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-black-200 sm:col-span-6 lg:col-span-4'
+          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
+        >
+          <ProjectCard />
+        </motion.div>
+        <motion.div
+          variants={fadeInUp}
+          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
+        >
+          <ProjectCard />
+        </motion.div>
+        <motion.div
+          variants={fadeInUp}
+          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
+        >
+          <ProjectCard />
+        </motion.div>
+        <motion.div
+          variants={fadeInUp}
+          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
+        >
+          <ProjectCard />
+        </motion.div>
+        <motion.div
+          variants={fadeInUp}
+          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
+        >
+          <ProjectCard />
+        </motion.div>
+        <motion.div
+          variants={fadeInUp}
+          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
+        >
+          <ProjectCard />
+        </motion.div>
+        <motion.div
+          variants={fadeInUp}
+          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
+        >
+          <ProjectCard />
+        </motion.div>
+        <motion.div
+          variants={fadeInUp}
+          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
+        >
+          <ProjectCard />
+        </motion.div>
+        <motion.div
+          variants={fadeInUp}
+          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
+        >
+          <ProjectCard />
+        </motion.div>
+        <motion.div
+          variants={fadeInUp}
+          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
+        >
+          <ProjectCard />
+        </motion.div>
+        <motion.div
+          variants={fadeInUp}
+          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
         >
           <ProjectCard />
         </motion.div>
