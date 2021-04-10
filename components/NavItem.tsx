@@ -8,7 +8,7 @@ const Navitem: FunctionComponent<{
   route: string;
 }> = ({ activeItem, name, route, setActiveItem }) => {
   return activeItem !== name ? (
-    <Link href={route}>
+    <Link href={route} scroll={false}>
       <a>
         <span className='hover:text-green' onClick={() => setActiveItem(name)}>
           {name}

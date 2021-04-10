@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { GetStaticProps } from "next";
 import { services } from "../data";
 import { motion } from "framer-motion";
@@ -14,6 +15,9 @@ const index = () => {
       exit='exit'
       className='flex flex-col flex-grow px-6 pt-1'
     >
+      <Head>
+        <title>Front-End Developer | Portfolio</title>
+      </Head>
       <h5 className='my-3 font-medium'>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus
         placeat optio reiciendis perferendis in saepe nostrum? Sint ducimus

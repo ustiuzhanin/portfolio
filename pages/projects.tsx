@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { motion } from "framer-motion";
 import { stagger, fadeInUp, routeFadeIn } from "../animations";
 
@@ -13,6 +14,9 @@ const projects = () => {
       className='px-5 py-2 overflow-x-scroll'
       style={{ height: "65vh" }}
     >
+      <Head>
+        <title>Front-End developer | Projects</title>
+      </Head>
       <motion.div
         variants={stagger}
         initial='initial'
