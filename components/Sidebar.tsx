@@ -40,10 +40,10 @@ const Sidebar: FunctionComponent<{ data: UserInfo }> = ({
       </a>
       {/* Social links */}
       <div className='flex justify-around mx-auto my-5 text-green w9/12 md:w-full'>
-        <a href={socials?.linkedin_url}>
+        <a href={socials.linkedin_url}>
           <AiFillLinkedin className='w-8 h-8' />
         </a>
-        <a href={socials?.github_url}>
+        <a href={socials.github_url}>
           <AiFillGithub className='w-8 h-8' />
         </a>
       </div>

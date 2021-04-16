@@ -3,7 +3,6 @@ import { IconType } from "react-icons";
 export interface Service {
   title: string;
   desc: string;
-  Icon: IconType;
 }
 
 export interface Skill {
@@ -19,6 +18,19 @@ export interface UserInfo {
   occupancy: string;
   location: string;
   avatar: string;
-  avatar: string;
-  socials: object;
+  socials: {
+    linkedin_url: string;
+    github_url: string;
+  };
+}
+
+export interface AboutInfo {
+  desc: string;
+  skills: [
+    {
+      desc: string;
+      title: string;
+      id: string;
+    }
+  ];
 }

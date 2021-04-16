@@ -1,12 +1,19 @@
 import Head from "next/head";
 
-import { services } from "../data";
+// import { skills } from "../data";
 import { motion } from "framer-motion";
 import { fadeInUp, routeFadeIn, stagger } from "../animations";
+import { gql } from "@apollo/client";
+import { FunctionComponent } from "react";
 
+import { client } from "../api";
+import { AboutInfo } from "../type";
 import ServiceCard from "../components/ServiceCard";
 
-const index = () => {
+const index: FunctionComponent<{ data: AboutInfo }> = ({
+  data: { desc, skills },
+}) => {
+  console.log(desc);
   return (
     <motion.section
       variants={routeFadeIn}
@@ -32,18 +39,36 @@ const index = () => {
           animate='animate'
           className='grid gap-6 lg:grid-cols-2'
         >
-          {services.map((service) => (
+          {skills.map((skill) => (
             <motion.div
+              key={skill.id}
               variants={fadeInUp}
               className='bg-gray-200 rounded-lg dark:bg-dark-200 lg:col-span-1'
             >
-              <ServiceCard service={service} />
+              <ServiceCard service={skill} />
             </motion.div>
           ))}
         </motion.div>
       </div>
     </motion.section>
   );
+};
+
+export const getStaticProps = async (context) => {
+  const { data } = await client.query({
+    query: gql`
+      query getAboutInfo {
+        aboutPage {
+          desc
+          skills
+        }
+      }
+    `,
+  });
+
+  return {
+    props: { data: data.aboutPage },
+  };
 };
 
 export default index;

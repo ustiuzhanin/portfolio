@@ -6,7 +6,7 @@ import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import { Router } from "next/router";
 
-import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
+import { gql } from "@apollo/client";
 import { client } from "../api";
 
 function MyApp({ Component, pageProps, router, profileData }) {
