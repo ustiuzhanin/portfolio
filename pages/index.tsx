@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { GetStaticProps } from "next";
+
 import { services } from "../data";
 import { motion } from "framer-motion";
 import { fadeInUp, routeFadeIn, stagger } from "../animations";

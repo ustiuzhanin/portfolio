@@ -1,26 +1,35 @@
+import { FunctionComponent } from "react";
+import Image from "next/image";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { GoLocation } from "react-icons/go";
 import { GiTie } from "react-icons/gi";
 import { useTheme } from "next-themes";
 
-const Sidebar = () => {
+import { UserInfo } from "../type";
+
+const Sidebar: FunctionComponent<{ data: UserInfo }> = ({
+  data: { email, first_name, last_name, occupancy, location, avatar, socials },
+}) => {
   const { theme, setTheme } = useTheme();
 
   const handleBtnClick = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
+
   return (
     <div>
-      <img
+      <Image
         className='w-32 h-32 mx-auto rounded-full'
-        src='https://images.unsplash.com/photo-1593462215105-0addc26b1a5f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2600&q=80'
-        alt='Slava U.'
+        src={avatar ? avatar : "#"}
+        alt={`${first_name}\`a avatar`}
+        height={128}
+        width={128}
       />
       <h2 className='my-4 text-3xl font-medium tracking-wider'>
-        <span className='text-green'>Slava</span> U.
+        <span className='text-green'>{first_name}</span> {last_name}
       </h2>
       <p className='px-2 py-1 my-3 bg-gray-200 rounded-full dark:bg-dark-200'>
-        Front-End Web Developer
+        {occupancy}
       </p>
       <a
         href='/assets/resume.pdf'
@@ -31,10 +40,10 @@ const Sidebar = () => {
       </a>
       {/* Social links */}
       <div className='flex justify-around mx-auto my-5 text-green w9/12 md:w-full'>
-        <a href='#'>
+        <a href={socials?.linkedin_url}>
           <AiFillLinkedin className='w-8 h-8' />
         </a>
-        <a href='#'>
+        <a href={socials?.github_url}>
           <AiFillGithub className='w-8 h-8' />
         </a>
       </div>
@@ -42,15 +51,18 @@ const Sidebar = () => {
       <div className='py-5 my-5 bg-gray-200 dark:bg-dark-200 mx--1 location--wrapper'>
         <div className='flex items-center justify-center space-x-2'>
           <GoLocation className='w-6 h-6' />
-          <span>Chicago, IL</span>
+          <span>{location}</span>
         </div>
-        <a href='mailto: abc@example.com' className='block my-2'>
-          Send Email
+        <a href={`mailto: ${email}`} className='block my-2'>
+          {email}
         </a>
       </div>
-      <button className='w-8/12 px-5 py-5 my-2 text-white rounded-full focus:outline-none bg-gradient-to-r from-green to-blue-400'>
+      <a
+        href={`mailto: ${email}`}
+        className='inline-block w-8/12 px-5 py-5 my-2 text-white rounded-full focus:outline-none bg-gradient-to-r from-green to-blue-400'
+      >
         Email Me!
-      </button>
+      </a>
       <button
         onClick={handleBtnClick}
         className='w-8/12 px-5 py-5 my-2 text-white rounded-full focus:outline-none bg-gradient-to-r from-green to-blue-400'
