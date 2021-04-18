@@ -1,17 +1,18 @@
 import Image from "next/image";
 import { AiFillGithub, AiFillProject } from "react-icons/ai";
 
-const ProjectCard = () => {
+const ProjectCard = ({ project: { img_url, project_name } }) => {
+  console.log(project_name);
   return (
     <div>
       <Image
-        src='/project.jpeg'
+        src={img_url}
         alt='name'
         layout='responsive'
         height='150'
         width='300'
       />
-      <p className='my-2 text-center'>Project Name</p>
+      <p className='my-2 text-center'>{project_name}</p>
 
       {/* <div className='absolute top-0 left-0 z-10 grid w-full h-auto p-2 text-black bg-gray-100 md:grid-cols-2 gap-x-12 dark:text-white dark:bg-dark-100'>
         <div>

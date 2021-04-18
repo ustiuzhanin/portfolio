@@ -1,10 +1,12 @@
 import Head from "next/head";
 import { motion } from "framer-motion";
 import { stagger, fadeInUp, routeFadeIn } from "../animations";
+import { gql } from "@apollo/client";
 
+import { client } from "../api";
 import ProjectCard from "../components/ProjectCard";
 
-const projects = () => {
+const projects = ({ projects }) => {
   return (
     <motion.section
       variants={routeFadeIn}
@@ -23,75 +25,36 @@ const projects = () => {
         animate='animate'
         className='relative grid grid-cols-12 gap-4 my-3'
       >
-        <motion.div
-          variants={fadeInUp}
-          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
-        >
-          <ProjectCard />
-        </motion.div>
-        <motion.div
-          variants={fadeInUp}
-          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
-        >
-          <ProjectCard />
-        </motion.div>
-        <motion.div
-          variants={fadeInUp}
-          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
-        >
-          <ProjectCard />
-        </motion.div>
-        <motion.div
-          variants={fadeInUp}
-          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
-        >
-          <ProjectCard />
-        </motion.div>
-        <motion.div
-          variants={fadeInUp}
-          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
-        >
-          <ProjectCard />
-        </motion.div>
-        <motion.div
-          variants={fadeInUp}
-          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
-        >
-          <ProjectCard />
-        </motion.div>
-        <motion.div
-          variants={fadeInUp}
-          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
-        >
-          <ProjectCard />
-        </motion.div>
-        <motion.div
-          variants={fadeInUp}
-          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
-        >
-          <ProjectCard />
-        </motion.div>
-        <motion.div
-          variants={fadeInUp}
-          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
-        >
-          <ProjectCard />
-        </motion.div>
-        <motion.div
-          variants={fadeInUp}
-          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
-        >
-          <ProjectCard />
-        </motion.div>
-        <motion.div
-          variants={fadeInUp}
-          className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
-        >
-          <ProjectCard />
-        </motion.div>
+        {projects.map((project) => (
+          <motion.div
+            key={project.id}
+            variants={fadeInUp}
+            className='col-span-12 p-2 bg-gray-200 rounded-lg dark:bg-dark-200 dark:bg-black-200 sm:col-span-6 lg:col-span-4'
+          >
+            <ProjectCard project={project} />
+          </motion.div>
+        ))}
       </motion.div>
     </motion.section>
   );
+};
+
+export const getStaticProps = async (context) => {
+  const { data } = await client.query({
+    query: gql`
+      query getProjects {
+        projects {
+          img_url
+          id
+          project_name
+        }
+      }
+    `,
+  });
+
+  return {
+    props: { projects: data.projects },
+  };
 };
 
 export default projects;
